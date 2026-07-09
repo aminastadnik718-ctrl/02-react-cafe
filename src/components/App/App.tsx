@@ -5,7 +5,7 @@ import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
 import { useState } from 'react';
-import type { Vote, VoteType } from '../types/votes';
+import type { Vote, VoteType } from '../../types/votes';
 
 const initialVotes: Vote = {
   good: 0,
