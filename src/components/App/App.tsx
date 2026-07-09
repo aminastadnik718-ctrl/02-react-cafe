@@ -5,16 +5,16 @@ import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
 import { useState } from 'react';
-import type { Vote, VoteType } from '../../types/votes';
+import type { Votes, VoteType } from '../../types/votes';
 
-const initialVotes: Vote = {
+const initialVotes: Votes = {
   good: 0,
   neutral: 0,
   bad: 0,
 };
 
 export default function App() {
-  const [votes, setVotes] = useState<Vote>(initialVotes);
+  const [votes, setVotes] = useState<Votes>(initialVotes);
 
   const handleVotes = (type: VoteType) => {
     setVotes((prev) => ({
@@ -29,7 +29,7 @@ export default function App() {
 
   const totalVotes = votes.good + votes.neutral + votes.bad;
   const positiveRate = totalVotes
-    ? Math.round((votes.good / totalVotes) * 100)
+    ? Math.round((votes.good + votes.neutral) * 100 / totalVotes)
     : 0
 
 
